@@ -1,0 +1,12 @@
+// app global css in SCSS form
+@font-face {
+  font-family: "Bombardier";
+  src: url("./fonts/bombardier/Bombardier-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Bombardier", "roboto-font";
+  color: white;
+}
