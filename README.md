@@ -92,7 +92,7 @@ Put your Risk of Rain 2 knowledge to the test and try to guess the daily item, u
 ## Roadmap
 
 - [x] Add Emoji Share Link
-- [] Add Item Silhouette Hint
+- [ ] Add Item Silhouette Hint
 - [ ] Endless Mode
 - [ ] Stages Mode
 - [ ] Characters Mode
