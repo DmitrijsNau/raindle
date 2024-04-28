@@ -1,5 +1,7 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 <a name="readme-top"></a>
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -7,8 +9,6 @@
 *** Don't forget to give the project a star!
 *** Thanks again! Now go create something AMAZING! :D
 -->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -23,23 +23,20 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 -->
+
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/DmitrijsNau/raindle">
-    <img src="/public/images/raindle_logo.png" alt="Logo" width="300" height="300">
+    <img src="./public/images/raindle_logo.png" alt="Logo" width="500" height="300">
   </a>
 
-  <h3 align="center">Raindle</h3>
+  <h3 align="center">Risk of Rain 2 Wordle</h3>
 
   <p align="center">
-    Risk of Rain 2 Wordle
-    <br />
     <a href="https://github.com/DmitrijsNau/raindle"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -50,8 +47,6 @@
     <a href="https://github.com/DmitrijsNau/raindle/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -64,17 +59,17 @@
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About
+
+[![Raindle-Title.png](https://i.postimg.cc/wxRttR98/Raindle-Title.png)](https://postimg.cc/bd8YWJG3)
 
 [![Raindle-Complete.png](https://i.postimg.cc/fbKS5c1J/Raindle-Complete.png)](https://postimg.cc/McnGpQ6S)
 
@@ -82,73 +77,65 @@ Put your Risk of Rain 2 knowledge to the test and try to guess the daily item, u
 
 <p align="center">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+[![Vue][Vue.js]][Vue-url]
 
-* [![Vue][Vue.js]][Vue-url]
-* [![Quasar][Quasar-url]
-* [![Built-with-Firebase-Logo-Dark.png](https://i.postimg.cc/cHPD4GTq/Built-with-Firebase-Logo-Dark.png)](https://postimg.cc/Hc40BKf3)
+[![Quasar][Quasar]][Quasar-url]
+
+[<img src="https://i.postimg.cc/FRkMxZB4/Built-with-Firebase-Logo-Light.png" alt="Built-with-Firebase-Logo-Light" width="90" height=40/>](https://postimg.cc/hzgZD9ny)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
+
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Add Emoji Share Link
+- [] Add Item Silhouette Hint
+- [ ] Endless Mode
+- [ ] Stages Mode
+- [ ] Characters Mode
+- [ ] PWA for mobile
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Me! - raindle.game@raindle.net
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/DmitrijsNau/raindle](https://github.com/DmitrijsNau/raindle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+List of games/projects that have greatly inspired/helped in the making of this project!
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+- [Risk of Rain 2 Web API](https://riskofrain2api.herokuapp.com/) - Big shoutout to this project! I was able to use the data provided here as the starting point for my project, which was a MASSIVE time save
+- [Lolde](https://loldle.net/)
+- [Isaacle](https://isaacle.net/)
+- [Img Shields](https://shields.io)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
