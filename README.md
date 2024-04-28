@@ -32,7 +32,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/DmitrijsNau/raindle">
-    <img src="/public/images/raindle_logo.png" alt="Logo" width="80" height="80">
+    <img src="/public/images/raindle_logo.png" alt="Logo" width="300" height="300">
   </a>
 
   <h3 align="center">Raindle</h3>
@@ -80,7 +80,7 @@
 
 Put your Risk of Rain 2 knowledge to the test and try to guess the daily item, using previous answers and hints. Try to guess the stage and character ability as well, or get a highscore in endless mode (coming soon).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="center">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -90,6 +90,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 * [![Vue][Vue.js]][Vue-url]
 * [![Quasar][Quasar-url]
+* [![Built-with-Firebase-Logo-Dark.png](https://i.postimg.cc/cHPD4GTq/Built-with-Firebase-Logo-Dark.png)](https://postimg.cc/Hc40BKf3)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
