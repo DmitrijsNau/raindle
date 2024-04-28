@@ -98,7 +98,7 @@ Put your Risk of Rain 2 knowledge to the test and try to guess the daily item, u
 - [ ] Characters Mode
 - [ ] PWA for mobile
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/DmitrijsNau/raindle/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
