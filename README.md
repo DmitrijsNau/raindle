@@ -37,10 +37,9 @@
   <h3 align="center">Risk of Rain 2 Wordle</h3>
 
   <p align="center">
-    <a href="https://github.com/DmitrijsNau/raindle"><strong>Explore the docs »</strong></a>
+    <a href="https://raindle.net/"><strong>Play the Game! »</strong></a>
     <br />
     <br />
-    <a href="https://raindle.net/">Play the Game!</a>
     ·
     <a href="https://github.com/DmitrijsNau/raindle/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
