@@ -60,7 +60,6 @@ export default{
     };
   },
   methods: {
-    // TODO: This is kind of dog like yeah im doing 2 things in one but the tripple if statement is shit and nested if is shit
     useColumnColor(header) {
     if (this.isCloseGuess(header)) {
       return 'bg-yellow-14';
