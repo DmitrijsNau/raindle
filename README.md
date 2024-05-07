@@ -125,6 +125,7 @@ Project Link: [https://github.com/DmitrijsNau/raindle](https://github.com/Dmitri
 
 List of games/projects that have greatly inspired/helped in the making of this project!
 
+- [Charlie Rozeski](https://rozeski.net/) - Massive thanks to my close friend for making the images and silhouettes for the project
 - [Risk of Rain 2 Web API](https://riskofrain2api.herokuapp.com/) - Big shoutout to this project! I was able to use the data provided here as the starting point for my project, which was a MASSIVE time save
 - [Lolde](https://loldle.net/)
 - [Isaacle](https://isaacle.net/)

@@ -6,8 +6,11 @@
         <div class="text-h6 text-center">Info</div>
         <div class="text-body1">This project was inspired by awesome games like <a href="https://loldle.net/">Lolde</a> , <a href="https://isaacle.net/">Isaacle</a> and others alike. </div>
       </q-card-section>
-      <q-card-section align="left">
+      <q-card-section align="left" class="text-body1">
         If you'd like to support my game, you can do so by <a href="https://ko-fi.com/dimanaudzuns">buying me a coffee</a> or <a href="#" @click.prevent="copyLink">sharing this project</a> with your friends.
+      </q-card-section>
+      <q-card-section align="left" class="text-body1">
+        Massive shoutout to my friend Charlie for making the item images and silhouettes. Check out his stuff <a href="https://rozeski.net/">over here</a>.
       </q-card-section>
           <q-card-actions align="left">
             <RoadMap />
