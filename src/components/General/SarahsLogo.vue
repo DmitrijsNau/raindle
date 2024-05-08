@@ -1,5 +1,5 @@
 <template>
-  <q-img @click="$router.push('/')" src="/images/raindle_logo.png" class="logo" />
+  <q-img @click="$router.push('/')" src="/images/raindle_logo.png" class="logo cursor-pointer" />
 </template>
 <style scoped>
 .logo:hover {
