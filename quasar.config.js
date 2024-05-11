@@ -7,6 +7,7 @@
 
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
+const Sitemap = require("vite-plugin-sitemap");
 
 const { configure } = require("quasar/wrappers");
 require("dotenv").config();
@@ -82,6 +83,13 @@ module.exports = configure(function (/* ctx */) {
           },
           { server: false },
         ],
+        Sitemap({
+          // https://github.com/jbaubree/vite-plugin-sitemap#configuration-options
+          hostname: `https://${process.env.DOMAIN || `localhost`}`,
+          readable: false,
+          outDir: `./dist/spa`, // change this according to your build mode
+          dynamicRoutes: [`/`, `/items`],
+        }),
       ],
     },
 

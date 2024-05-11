@@ -35,7 +35,8 @@
     "eslint-plugin-vue": "^9.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.5.1",
-    "vite-plugin-checker": "^0.6.4"
+    "vite-plugin-checker": "^0.6.4",
+    "vite-plugin-sitemap": "^0.5.3"
   },
   "engines": {
     "node": "^20 || ^18 || ^16",
