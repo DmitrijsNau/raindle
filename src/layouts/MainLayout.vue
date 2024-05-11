@@ -49,7 +49,6 @@ const backgroundImage = useBackground();
   background: rgba(0, 0, 0,.4);
   padding: 10px;
   border: black 2px solid;
-  overflow-x: auto; /* Enable horizontal scrolling */
 }
 .scrollable-row {
   display: flex;
@@ -58,5 +57,30 @@ const backgroundImage = useBackground();
   width: max-content; /* Ensure the row takes at least the full width of its parent */
   padding-right: 0;
   margin-right: 0;
+}
+/* Default font size for large screens */
+html {
+  font-size: 16px;
+}
+
+/* Smaller font size for screens less than 1200px wide */
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Even smaller font size for screens less than 900px wide */
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* Smallest font size for screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
 }
 </style>

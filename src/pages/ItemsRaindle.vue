@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-center">
-    <div class="col-6">
+    <div class="col-auto flex flex-center">
       <SarahsLogo />
     </div>
   </div>
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="row q-mt-md justify-center">
-    <div class="col-4 flex flex-center">
+    <div class="col-5 flex flex-center">
       <HealthBar
         @game-over="isGameOver = true"
         :user-item-guesses="userItemGuesses"
@@ -39,12 +39,32 @@
       />
     </div>
   </div>
+  <div class="row q-mt-md justify-center mobile-only">
+    <div class="col-auto flex flex-center">
+      <FormChangeTableView @minimize="minimizeCard" />
+    </div>
+  </div>
   <div class="row q-mt-md justify-center">
-    <div class="col-7 flex justify-center" v-if="isDataLoaded && userItemGuesses.length >= 1">
+    <div
+      class="col-10 flex justify-center"
+      v-if="isDataLoaded && userItemGuesses.length >= 1 && !isTableMinimized"
+    >
       <UserGuessItemsTable
         :todays-item-answer="todaysItemAnswer"
         :user-item-guesses="userItemGuesses"
         class="table q-mb-sm"
+        style="overflow-x: auto;"
+      />
+    </div>
+    <div
+      class="col-auto flex justify-center mobile-only"
+      v-else-if="isDataLoaded && userItemGuesses.length >= 1"
+    >
+      <UserGuessItemsTableMinimized
+        :todays-item-answer="todaysItemAnswer"
+        :user-item-guesses="userItemGuesses"
+        class="table q-mb-sm"
+        v-show="isTableMinimized"
       />
     </div>
   </div>
@@ -54,7 +74,7 @@ import { useStorage } from "@vueuse/core";
 import { onMounted, ref, computed } from "vue";
 
 import FormItemSelect from "src/components/ItemsRaindle/Form/FormItemSelect.vue";
-import UserGuessItemsTable from "src/components/ItemsRaindle/UserGuessItemsTable.vue";
+import UserGuessItemsTable from "src/components/ItemsRaindle/Tables/UserGuessItemsTable.vue";
 import useTodaysItemsAnswer from "src/composables/useTodaysItemsAnswer";
 import CongratsCard from "src/components/General/CongratsCard.vue";
 import SarahsLogo from "src/components/General/SarahsLogo.vue";
@@ -63,11 +83,14 @@ import ItemSilhouetteHint from "src/components/ItemsRaindle/Hints/ItemSilhouette
 import HealthBar from "src/components/General/HealthBar.vue";
 import GameOverCard from "src/components/General/GameOverCard.vue";
 import IntroCard from "src/components/ItemsRaindle/IntroCard.vue";
+import FormChangeTableView from "src/components/ItemsRaindle/Form/FormChangeTableView.vue";
+import UserGuessItemsTableMinimized from "src/components/ItemsRaindle/Tables/UserGuessItemsTableMinimized.vue";
 defineOptions({
   name: "ItemsRaindle",
 });
 const todaysItemAnswer = ref(null);
 const isGameOver = ref(false);
+const isTableMinimized = ref(false);
 const userItemGuesses = useStorage("Raindle_itemGuesses", [], localStorage, {
   mergeDefaults: true,
 });
@@ -92,6 +115,9 @@ const useDescriptionHint = computed(
 const useSilhouetteHint = computed(
   () => userItemGuesses.value.length >= 6 && !isItemGuessed.value
 );
+const minimizeCard = (isMinimized) => {
+  isTableMinimized.value = isMinimized;
+};
 </script>
 <style scoped lang="scss">
 .title-card {

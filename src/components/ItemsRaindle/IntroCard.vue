@@ -12,7 +12,7 @@
           <div class="text-h5">Type any item to start</div>
         </div>
       </div>
-      <q-btn flat round dense :icon="buttonIcon" @click="minimizeCard" class="absolute-top-left" />
+      <q-btn flat dense :icon="buttonIcon" @click="minimizeCard" class="absolute-top-left" />
     </q-card-section>
   </q-card>
 </template>
@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     buttonIcon() {
-      return this.isMinimized ? 'open_in_full' : 'close_fullscreen';
+      return this.isMinimized ? 'add' : 'remove';
     },
   },
   methods: {

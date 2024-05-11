@@ -83,12 +83,18 @@ const useTextColor = () => {
 <style scoped>
 .item-img {
   width: 100%;
-  max-width: 100px;
+  max-width: 15vw;
+  height: auto;
   margin: 0 auto;
 }
 .share-card {
   background-color: rgb(147, 146, 146);
   border-radius: 5px;
   display: inline-block;
+}
+@media screen and (max-width: 600px) {
+  .q-card__section {
+    padding: 4px !important; /* Adjust this value as needed */
+  }
 }
 </style>

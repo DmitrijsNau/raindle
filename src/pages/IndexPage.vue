@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-center">
-    <div class="col-6">
+    <div class="col-auto flex flex-center">
       <SarahsLogo />
     </div>
   </div>

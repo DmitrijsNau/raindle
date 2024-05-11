@@ -7,5 +7,7 @@
 }
 .logo{
   transition: transform 0.5s;
+  width: 70vw;
+  height: auto;
 }
 </style>
