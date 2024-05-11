@@ -60,7 +60,6 @@ export default{
     };
   },
   methods: {
-    // TODO: This is kind of dog like yeah im doing 2 things in one but the tripple if statement is shit and nested if is shit
     useColumnColor(header) {
     if (this.isCloseGuess(header)) {
       return 'bg-yellow-14';
@@ -89,6 +88,7 @@ export default{
     }
   },
     isCloseGuess(header) {
+      if (header === 'Item') return false;
       if (header === 'Color') {
         const guessColor = this.itemGuess[this.headerToProperty[header]];
         const correctColor = this.todaysItemAnswer[this.headerToProperty[header]];
@@ -112,7 +112,6 @@ export default{
   },
   mounted() {
     this.headers.forEach(header => {
-      if (header.header === 'Item') return;
       const color = this.useColumnColor(header.header);
       this.appendEmoji(header.header, color);
     });

@@ -6,17 +6,7 @@
   </div>
   <div class="row justify-center">
     <div class="col-8">
-      <q-card square bordered class="text-center bg-blue-grey-14 thick-border">
-        <q-card-section>
-          <div class="text-h4">Guess today's Risk of Rain 2 item!</div>
-          <div class="text-h6 text-grey">
-            If you lose all your health, the game is over!
-            Yellow indicates the item is close to the correct answer.
-            Hover over the column names for more information.
-          </div>
-          <div class="text-h5">Type any item to start</div>
-        </q-card-section>
-      </q-card>
+      <IntroCard />
     </div>
   </div>
   <div v-if="isDataLoaded" class="row q-mt-sm justify-center">
@@ -72,6 +62,7 @@ import ItemDescriptionHint from "src/components/ItemsRaindle/Hints/ItemDescripti
 import ItemSilhouetteHint from "src/components/ItemsRaindle/Hints/ItemSilhouetteHint.vue";
 import HealthBar from "src/components/General/HealthBar.vue";
 import GameOverCard from "src/components/General/GameOverCard.vue";
+import IntroCard from "src/components/ItemsRaindle/IntroCard.vue";
 defineOptions({
   name: "ItemsRaindle",
 });
