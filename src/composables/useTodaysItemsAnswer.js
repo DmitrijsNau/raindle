@@ -2,7 +2,7 @@ import { useStorage } from "@vueuse/core";
 import { ref } from "vue";
 import { db } from "boot/firebase";
 import { set, ref as firebaseRef, get, onValue } from "firebase/database";
-import seedrandom from 'seedrandom';
+import seedrandom from "seedrandom";
 
 export default function useTodaysItemsAnswer() {
   const todaysItemsAnswer = ref(null);
@@ -18,7 +18,7 @@ export default function useTodaysItemsAnswer() {
     const epoch = Math.floor(currentDate.getTime() / 1000);
     const totalProblems = 179; // TOTAL NUMBER OF PROBLEMS - Dynamically fetch from db
     const index = Math.floor((epoch / (24 * 60 * 60)) % totalProblems); // divide by seconds in a day
-        // Use the index as a seed for a PRNG
+    // Use the index as a seed for a PRNG
     const seed = index + new Date().getFullYear();
     const random = new seedrandom(seed);
     const randomIndex = Math.floor(random() * totalProblems);

@@ -1,8 +1,9 @@
 <template>
-  <q-select dark square standout v-model="itemInput" use-input input-debounce="0" :options="rorItems"
+  <q-select ref="selectRef" dark square standout v-model="itemInput" use-input input-debounce="0" :options="rorItems"
   input-class="text-white" @filter="filterFn" @update:model-value="makeGuess()" label="Enter Item" bordered
-  label-color="yellow" bg-color="blue-grey-14" class="thick-border scrollable" transition-show="scale"
-  transition-hide="scale">
+  label-color="yellow" bg-color="blue-grey-14" class="thick-border scrollable item-select" transition-show="scale"
+  transition-hide="scale"
+  @popup-show="focusInput">
   <template v-slot:option="scope">
     <q-item v-bind="scope.itemProps" color="secondary">
       <q-item-section avatar>
@@ -23,7 +24,7 @@
 </q-select>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted,nextTick } from 'vue';
 import { set, ref as firebaseRef, get, onValue } from 'firebase/database'
 import { useStorage } from '@vueuse/core'
 
@@ -32,12 +33,16 @@ const rorItems = ref(null)
 const rorItemsBase = ref(null)
 const glorphyndle = ref("JTJ")
 const itemInput = ref(null)
+const selectRef = ref(null)
 const itemsGuessesLocalStorage = useStorage('Raindle_itemGuesses',
   [],
   localStorage,
   { mergeDefaults: true }
 )
-
+const focusInput = async () => {
+  await nextTick();
+  selectRef.value.focus();
+};
 onMounted(async () => {
   const itemsSelectRef = firebaseRef(db, 'items-select')
   const snapshot = await get(itemsSelectRef)
@@ -66,12 +71,9 @@ const makeGuess = () => {
 
 </script>
 <style scoped>
-.thick-border {
-  border-width: 2px !important;
-  border-color: #818181 !important;
-  border: 2px solid #818181 !important;
+.item-select {
+  min-width: 42vw;
 }
-
 .q-menu.scrollable .q-virtual-scroll__content {
   max-height: 100px !important;
   overflow-y: auto;

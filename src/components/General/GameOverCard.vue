@@ -12,9 +12,13 @@
     <q-card-section class="text-subtitle1">
       Feel free to try another game mode, or see how far you can get in endless mode!
     </q-card-section>
+    <q-card-section class="text-h6">
+      Your highest streak: {{ lastKnownHighestStreak }} 🔥
+    </q-card-section>
   </q-card>
 </template>
 <script setup>
+import { useStorage } from "@vueuse/core";
 const props = defineProps({
   topic: {
     type: String,
@@ -25,6 +29,7 @@ const props = defineProps({
     required: true,
   },
 });
+const lastKnownHighestStreak = useStorage("Raindle_itemsHighestKnownStreak", 0);
 const useTextColor = () => {
   switch (props.topic) {
     case "item":

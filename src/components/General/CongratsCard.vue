@@ -18,13 +18,16 @@
     <q-card-section >
       <div class="share-card thick-border" v-html="formattedShareableEmojiDisplay"></div>
     </q-card-section>
+    <q-card-section class="text-h5">
+      Your current streak is:  {{ props.streak }} 🔥, Good Stuff!
+    </q-card-section>
     <q-card-section>
       <q-btn class="thick-border bg-blue-grey-14" color="primary" @click="copyItemResult()" icon="content_copy" />
     </q-card-section>
   </q-card>
 </template>
 <script setup>
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useItemsRaindleStore } from 'src/stores/itemsRaindle';
 const props = defineProps({
   topic: {
@@ -35,6 +38,10 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  streak: {
+    type: Number,
+    required: true,
+  },
 });
 const itemsRaindleStore = useItemsRaindleStore();
 const formattedShareableEmojiDisplay = computed(() => {
@@ -43,7 +50,7 @@ const formattedShareableEmojiDisplay = computed(() => {
 const copyItemResult = () => {
   try {
     const todaysDateFormatted = new Date().toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
-    const itemsRaindleShareText = `Raindle Daily Item for ${todaysDateFormatted} \n` + itemsRaindleStore.shareableEmoji + `Play Raindle: https://raindle.net/items`;
+    const itemsRaindleShareText = `Raindle Daily Item for ${todaysDateFormatted} \n` + itemsRaindleStore.shareableEmoji + `\n My Streak: ${props.streak}🔥 \n` + `Play Raindle: https://raindle.net/items`;
     navigator.clipboard.writeText(itemsRaindleShareText);
     alert('Copied to clipboard!');
   } catch (error) {

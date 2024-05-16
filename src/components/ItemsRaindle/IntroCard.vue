@@ -1,5 +1,5 @@
 <template>
-  <q-card square bordered class="bg-blue-grey-14 thick-border">
+  <q-card square bordered class="bg-blue-grey-14 thick-border intro-card">
     <q-card-section class="row items-center justify-center">
       <div class="col text-center">
         <div class="text-h4">Guess today's Risk of Rain 2 item!</div>
@@ -36,3 +36,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.intro-card {
+  width: 90vw;
+  max-width: 1260px;
+}
+</style>

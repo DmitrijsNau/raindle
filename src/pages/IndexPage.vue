@@ -26,8 +26,9 @@
     </div>
   </div>
   <div class="row justify-center q-my-6">
-    <div class="col-6 flex flex-center">
+    <div class="col-6 flex flex-center justify-around">
       <MainInfo />
+      <RaindleChangelog />
     </div>
   </div>
 </template>
@@ -35,6 +36,7 @@
 import { ref } from "vue";
 import SarahsLogo from "src/components/General/SarahsLogo.vue";
 import MainInfo from 'src/components/General/MainInfo.vue'
+import RaindleChangelog from "src/components/General/RaindleChangelog.vue";
 defineOptions({
   name: "IndexPage",
 });

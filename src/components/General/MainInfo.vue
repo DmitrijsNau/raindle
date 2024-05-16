@@ -1,5 +1,5 @@
 <template>
-  <q-btn class="thick-border bg-blue-grey-14" color="primary" @click="showMainInfo = true" icon="info" />
+  <q-btn class="thick-border bg-blue-grey-14" color="primary" @click="showMainInfo = true" icon="info" size="lg" />
   <q-dialog v-model="showMainInfo">
     <q-card class="thick-border bg-blue-grey-14">
       <q-card-section>

@@ -1,0 +1,12 @@
+[
+  {
+    "origin": [
+      "http://localhost:9000",
+      "https://raindle.net",
+      "https://risk-of-raindle.web.app",
+      "https://risk-of-raindle.firebaseapp.com/"
+    ],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]
