@@ -68,9 +68,9 @@
 
 ## About
 
-[![Raindle-Title.png](https://i.postimg.cc/wxRttR98/Raindle-Title.png)](https://postimg.cc/bd8YWJG3)
+[![raindle-title.png](https://i.postimg.cc/W1Sxgq8F/raindle-title.png)](https://postimg.cc/JsDTWn9M)
 
-[![Raindle-Complete.png](https://i.postimg.cc/fbKS5c1J/Raindle-Complete.png)](https://postimg.cc/McnGpQ6S)
+[![raindle-items.png](https://i.postimg.cc/kM0CgSY7/raindle-items.png)](https://postimg.cc/mhyJdPGn)
 
 Put your Risk of Rain 2 knowledge to the test and try to guess the daily item, using previous answers and hints. Try to guess the stage and character ability as well, or get a highscore in endless mode (coming soon).
 
