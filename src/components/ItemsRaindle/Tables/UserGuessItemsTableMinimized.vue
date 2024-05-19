@@ -5,7 +5,7 @@
         <UserGuessItemsTableHeaderMinimized :headers="headers" />
       </div>
     </div>
-    <div v-for="itemName in userItemGuessesReverse" class="row scrollable-row" :key="itemName">
+    <div v-for="itemName in userItemGuessesReverse" class="row" :key="itemName">
       <div class="col-auto q-mt-sm q-mb-xs">
         <UserGuessItemsTableRowMinimized
           :itemGuess="allItemsByName[itemName]"
@@ -66,6 +66,10 @@ const headers = ref([{
   tooltip: "Color of the item. Primary-Secondary (optional)",
 },
 {
+  header: "Item Type",
+  tooltip: "Damage, Healing, Utility, Equpiment, World Unique"
+},
+{
   header: "Stack Type",
   tooltip: "None, Linear, Linear Hyperbolic, Hyperbolic, Exponential, or 'Special' ;)",
 },
@@ -75,15 +79,10 @@ const headers = ref([{
 },
 {
   header: "Release Period",
-  tooltip: "Base game, 1.0 release, or Survivors of the Void",
+  tooltip: "Base game, Scorched Acres, Skills 2.0, Hidden Realms, Artifacts, 1.0 release, Anniversary, or Survivors of the Void",
 },
 {
   header: "Achievement",
   tooltip: "Yes or No - item is locked behind an achievement",
 }]);
 </script>
-<style scoped>
-.scroll{
-  width: max-content !important; /* Make the width equal to the maximum width of the content */
-}
-</style>

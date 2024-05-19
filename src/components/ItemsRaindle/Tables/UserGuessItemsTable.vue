@@ -66,6 +66,10 @@ const headers = ref([{
   tooltip: "Color of the item. Primary-Secondary (optional)",
 },
 {
+  header: "Item Type",
+  tooltip: "Damage, Healing, Utility, Equpiment, World Unique"
+},
+{
   header: "Stack Type",
   tooltip: "None, Linear, Linear Hyperbolic, Hyperbolic, Exponential, or 'Special' ;)",
 },
@@ -75,7 +79,7 @@ const headers = ref([{
 },
 {
   header: "Release Period",
-  tooltip: "Base game, 1.0 release, or Survivors of the Void",
+  tooltip: "Base Game, Scorched Acres, Skills 2.0, Hidden Realms, Artifacts, 1.0 Release, Anniversary, or Survivors of the Void",
 },
 {
   header: "Achievement",

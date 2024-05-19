@@ -1,6 +1,18 @@
 
 <template>
   <div class="bg-image" :style="{ backgroundImage: `url(${backgroundImage})` }">
+    <div class="row justify-center">
+      <div class="col-auto flex flex-center">
+        <SarahsLogo />
+      </div>
+    </div>
+    <div class="row justify-center q-my-md">
+      <div class="col-auto flex flex-center">
+        <GameSettings />
+        <MainInfo />
+        <RaindleChangelog />
+      </div>
+    </div>
   <q-layout view="hHh lpR fFf">
     <q-page-container>
       <router-view />
@@ -11,7 +23,10 @@
 
 <script setup>
 import { ref } from 'vue'
-
+import MainInfo from 'src/components/General/MainInfo.vue'
+import RaindleChangelog from "src/components/General/RaindleChangelog.vue";
+import SarahsLogo from "src/components/General/SarahsLogo.vue";
+import GameSettings from "src/components/General/GameSettings.vue";
 defineOptions({
   name: 'MainLayout'
 })
@@ -47,8 +62,9 @@ const backgroundImage = useBackground();
 }
 .table{
   background: rgba(0, 0, 0,.4);
-  padding: 10px;
+  padding: 5px;
   border: black 2px solid;
+  max-width: 100vw;
 }
 .scrollable-row {
   display: flex;
@@ -57,6 +73,10 @@ const backgroundImage = useBackground();
   width: max-content; /* Ensure the row takes at least the full width of its parent */
   padding-right: 0;
   margin-right: 0;
+}
+.info-button {
+  max-width: 20vw;
+  font-size: 1rem;
 }
 /* Default font size for large screens */
 html {

@@ -1,22 +1,19 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div
+    class="bg-image text-center q-pa-md flex flex-center"
+    :style="{ backgroundImage: `url(${backgroundImage})` }"
+  >
     <div>
-      <div style="font-size: 30vh">
-        404
+      <div class="text-h4">
+        It seems like you've stumbled into the Bazaar Between Time...
       </div>
-
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
-
       <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
+        flat
+        bordered
         to="/"
         label="Go Home"
         no-caps
+        class="thick-border bg-blue-grey-14 q-mx-md q-my-md"
       />
     </div>
   </div>
@@ -24,6 +21,32 @@
 
 <script setup>
 defineOptions({
-  name: 'ErrorNotFound'
+  name: "ErrorNotFound",
 });
+const useBackground = () => {
+  const ratio = window.innerWidth / window.innerHeight;
+  if (ratio > 1.5) {
+    return "/images/bazar.jpg";
+  } else {
+    return "/images/bazar-vertical.jpeg";
+  }
+};
+const backgroundImage = useBackground();
 </script>
+<style scoped>
+.bg-image {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  overflow: scroll;
+}
+.thick-border {
+  border-width: 2px !important;
+  border-color: #818181 !important;
+  border: 3px solid #818181 !important;
+}
+</style>

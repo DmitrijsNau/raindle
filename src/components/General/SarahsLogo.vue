@@ -9,5 +9,6 @@
   transition: transform 0.5s;
   width: 70vw;
   height: auto;
+  max-width: 700px; /* replace with the image's original width */
 }
 </style>

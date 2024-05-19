@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-center header-font">
+  <div class="row scrollable-row header-font">
     <div class="col q-mx-xs col-width flex flex-center" v-for="header in headers" :key="header.header">
       <q-card square bordered class="text-center bg-blue-grey-14 header-card">
         <q-tooltip class="text-h6">
@@ -55,29 +55,29 @@ export default {
 .header-card::before {
     top: -4px;
     left: -4px;
-    border-top: 2px solid rgb(255, 255, 0);
-    border-left: 2px solid rgb(255, 255, 0);
+    border-top: 1px solid rgb(255, 255, 0);
+    border-left: 1px solid rgb(255, 255, 0);
     transition: 0.5s all;
 }
 .header-card::after {
     top: -4px;
     right: -4px;
-    border-top: 2px solid rgb(255, 255, 0);
-    border-right: 2px solid rgb(255, 255, 0);
+    border-top: 1px solid rgb(255, 255, 0);
+    border-right: 1px solid rgb(255, 255, 0);
     transition: 0.5s all;
 }
 span::before {
     bottom: -4px;
     left: -4px;
-    border-bottom: 2px solid rgb(255, 255, 0);
-    border-left: 2px solid rgb(255, 255, 0);
+    border-bottom: 1px solid rgb(255, 255, 0);
+    border-left: 1px solid rgb(255, 255, 0);
     transition: 0.5s all;
 }
 span::after {
     bottom: -4px;
     right: -4px;
-    border-bottom: 2px solid rgb(255, 255, 0);
-    border-right: 2px solid rgb(255, 255, 0);
+    border-bottom: 1px solid rgb(255, 255, 0);
+    border-right: 1px solid rgb(255, 255, 0);
     transition: 0.5s all;
 }
 

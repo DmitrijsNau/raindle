@@ -7,7 +7,8 @@
           <div class="text-h6 text-grey">
             If you lose all your health, the game is over!
             Yellow indicates the item is close to the correct answer.
-            Hover over the column names for more information.
+            Hover over/tap the column names to see the possible answers. If a guess is yellow, this means it
+            is one away from the correct answer, or the guess contains some of/more than the properties of the correct answer.
           </div>
           <div class="text-h5">Type any item to start</div>
         </div>

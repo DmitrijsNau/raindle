@@ -1,5 +1,5 @@
 <template>
-  <q-btn flat bordered square label="RoadMap" @click="showRoadMap = true" class="thick-border bg-blue-grey-14 q-mx-md" />
+  <q-btn flat bordered square label="RoadMap" @click="showRoadMap = true" class="thick-border bg-blue-grey-14 q-mx-md info-button" />
   <q-dialog v-model="showRoadMap">
     <q-card flat bordered square class="thick-border bg-blue-grey-14 text-h3">
       <q-card-section class="text-center text-h2">

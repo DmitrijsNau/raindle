@@ -2,7 +2,7 @@
   <q-btn
   size="xs"
   :icon="buttonIcon" @click="minimizeCard"
-  class="thick-border bg-blue-grey-14 text-center"
+  class="thick-border bg-blue-grey-14 text-center q-mx-sm"
 />
 </template>
 <script>

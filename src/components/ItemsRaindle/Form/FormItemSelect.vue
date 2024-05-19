@@ -3,7 +3,7 @@
   input-class="text-white" @filter="filterFn" @update:model-value="makeGuess()" label="Enter Item" bordered
   label-color="yellow" bg-color="blue-grey-14" class="thick-border scrollable item-select" transition-show="scale"
   transition-hide="scale"
-  @popup-show="focusInput">
+  @click="focus()">
   <template v-slot:option="scope">
     <q-item v-bind="scope.itemProps" color="secondary">
       <q-item-section avatar>
@@ -27,6 +27,7 @@
 import { ref, onMounted,nextTick } from 'vue';
 import { set, ref as firebaseRef, get, onValue } from 'firebase/database'
 import { useStorage } from '@vueuse/core'
+import { useGameSettingsStore } from 'src/stores/gameSettings';
 
 import { db } from 'boot/firebase';
 const rorItems = ref(null)
@@ -34,15 +35,15 @@ const rorItemsBase = ref(null)
 const glorphyndle = ref("JTJ")
 const itemInput = ref(null)
 const selectRef = ref(null)
+const gameSettingsStore = useGameSettingsStore();
 const itemsGuessesLocalStorage = useStorage('Raindle_itemGuesses',
   [],
   localStorage,
   { mergeDefaults: true }
 )
-const focusInput = async () => {
-  await nextTick();
+const focus = () => {
   selectRef.value.focus();
-};
+}
 onMounted(async () => {
   const itemsSelectRef = firebaseRef(db, 'items-select')
   const snapshot = await get(itemsSelectRef)
@@ -50,7 +51,9 @@ onMounted(async () => {
 })
 
 const filterFn = (val, update, abort) => {
-  if (val.length < 2) {
+  const hardMode = gameSettingsStore.hardMode
+  const filterLength = hardMode ? 3 : 0
+  if (val.length < filterLength) {
     rorItems.value = []
     abort()
     return
@@ -60,7 +63,6 @@ const filterFn = (val, update, abort) => {
     rorItems.value = rorItemsBase.value
       .filter(v => v.itemName.toLowerCase().indexOf(needle) > -1)
       .filter(v => !itemsGuessesLocalStorage.value.includes(v.itemName))
-      .slice(0, 20);
   });
 }
 

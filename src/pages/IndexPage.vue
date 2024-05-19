@@ -1,9 +1,4 @@
 <template>
-  <div class="row justify-center">
-    <div class="col-auto flex flex-center">
-      <SarahsLogo />
-    </div>
-  </div>
   <div
     class="row q-my-sm justify-center"
     v-for="option in gameOptions"
@@ -25,18 +20,9 @@
       </q-card>
     </div>
   </div>
-  <div class="row justify-center q-my-6">
-    <div class="col-6 flex flex-center justify-around">
-      <MainInfo />
-      <RaindleChangelog />
-    </div>
-  </div>
 </template>
 <script setup>
 import { ref } from "vue";
-import SarahsLogo from "src/components/General/SarahsLogo.vue";
-import MainInfo from 'src/components/General/MainInfo.vue'
-import RaindleChangelog from "src/components/General/RaindleChangelog.vue";
 defineOptions({
   name: "IndexPage",
 });

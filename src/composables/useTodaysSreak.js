@@ -54,7 +54,13 @@ export default function useTodaysStreak() {
       itemsLastDayPlayed.value = updatedLastDayPlayed;
       return { itemsStreak, isStreakReset };
     }
-    // if the last day played is not yesterday, reset the streak
+    //if the last day played is today, do nothing
+    if (itemsLastDayPlayed.value === updatedLastDayPlayed) {
+      isStreakReset.value = false;
+      return { itemsStreak, isStreakReset };
+    }
+
+    // if the last day played is not yesterday or today, reset the streak
     if (itemsLastDayPlayed.value !== yesterdayDate) {
       itemsStreak.value = 1;
       // if the current streak is higher than the highest known streak, update the highest known streak

@@ -1,11 +1,10 @@
 <template>
   <div>
-    <q-btn icon="checklist" @click="dialog = true" class="thick-border" color="primary" size="lg" />
+    <q-btn icon="checklist" @click="dialog = true" class="thick-border q-mx-sm" color="primary" size="md" />
     <q-dialog v-model="dialog">
       <q-card square class="thick-border bg-primary changelog-card">
         <q-card-section class="row justify-between items-center">
           <div class="text-h1 text-center">Changelog</div>
-          <q-btn icon="close" flat round dense @click="dialog = false" size="xl" />
         </q-card-section>
         <q-card-section>
           <div v-html="changelog" class="bg-primary text-h5"></div>
