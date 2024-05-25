@@ -55,10 +55,11 @@
       </div>
     </div>
     <div v-if="userItemGuesses.length >= 1">
-      <div class="row q-mt-md justify-center mobile-only">
+      <div class="row q-mt-md justify-center">
         <div class="col-auto flex flex-center">
           <FormChangeTableView @minimize="minimizeCard" />
           <FormColumnDecriptor />
+          <FormItemsColorLookup :itemColors="itemColors" />
         </div>
       </div>
       <div class="row q-mt-md justify-center">
@@ -84,6 +85,8 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
 import { onMounted, ref, computed, watch } from "vue";
+import { db } from "boot/firebase";
+import { set, ref as firebaseRef, get, onValue } from "firebase/database";
 
 import FormItemSelect from "src/components/ItemsRaindle/Form/FormItemSelect.vue";
 import UserGuessItemsTable from "src/components/ItemsRaindle/Tables/UserGuessItemsTable.vue";
@@ -99,6 +102,7 @@ import UserGuessItemsTableMinimized from "src/components/ItemsRaindle/Tables/Use
 import TotalCorrectGuesses from "src/components/ItemsRaindle/TotalCorrectGuesses.vue";
 import LostStreakAlert from "src/components/General/LostStreakAlert.vue";
 import FormColumnDecriptor from "src/components/ItemsRaindle/Form/FormColumnDecriptor.vue";
+import FormItemsColorLookup from "src/components/ItemsRaindle/Form/FormItemsColorLookup.vue";
 
 import useTodaysItemsAnswer from "src/composables/useTodaysItemsAnswer";
 import useTodaysStreak from "src/composables/useTodaysSreak";
@@ -113,6 +117,7 @@ const isGameOver = ref(false);
 const isGameGuessed = ref(false);
 const isTableMinimized = ref(false);
 const isStreakResetRef = ref(false);
+const itemColors = ref(null);
 const gameSettingsStore = useGameSettingsStore();
 const currentStreak = useStorage(
   "Raindle_itemsCurrentStreak",
@@ -136,6 +141,10 @@ onMounted(async () => {
   const { getTodaysItemsAnswer } = useTodaysItemsAnswer();
   const answerRef = await getTodaysItemsAnswer();
   todaysItemAnswer.value = answerRef.value;
+
+  const itemColorsRef = firebaseRef(db, `items-colors`);
+  const snapshot = await get(itemColorsRef);
+  itemColors.value = Object.values(snapshot.val());
   watch(
     () => isItemGuessed.value,
     (newValue) => {
@@ -161,7 +170,7 @@ onMounted(async () => {
 });
 
 const isDataLoaded = computed(
-  () => todaysItemAnswer.value != null && userItemGuesses.value != null
+  () => todaysItemAnswer.value != null && userItemGuesses.value != null && itemColors.value != null
 );
 const useDescriptionHint = computed(
   () => userItemGuesses.value.length >= 4 && !isItemGuessed.value
