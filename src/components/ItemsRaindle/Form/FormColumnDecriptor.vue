@@ -1,5 +1,5 @@
 <template>
-  <q-btn class="thick-border bg-blue-grey-14 q-mx-sm" color="primary" @click="showColumnDescription = true" icon="list_alt" size="xs" />
+  <q-btn class="thick-border bg-blue-grey-14 q-mx-sm mobile-only" color="primary" @click="showColumnDescription = true" icon="list_alt" size="xs" />
   <q-dialog v-model="showColumnDescription">
     <q-card square class="thick-border bg-blue-grey-14">
       <q-card-section>
