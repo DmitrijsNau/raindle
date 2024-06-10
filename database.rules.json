@@ -4,6 +4,9 @@
     ".write": "false",
     "total-correct-guesses": {
       ".write": "true"
+    },
+    "time": {
+      ".write": "true"
     }
   }
 }

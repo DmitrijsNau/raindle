@@ -1,20 +1,25 @@
 import { ref } from "vue";
 import { db } from "boot/firebase";
 import { ref as firebaseRef, onValue, set } from "firebase/database";
+import useTodaysDateUtility from "src/composables/useTodaysItemsAnswer";
 
 export default function useTotalCorrectGuessesToday() {
   const totalCorrectGuessesToday = ref(0);
   const useTotalCorrectGuessesToday = async () => {
-    const currentDate = new Date().toLocaleDateString("en-CA", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    });
+    const todaysDateUtility = useTodaysDateUtility();
+    const currentDateUnix = await todaysDateUtility.getServerTimestamp();
+    const currentDate = new Date(currentDateUnix);
+    const utcDay = currentDate.getUTCDate();
+    const utcMonth = currentDate.getUTCMonth() + 1; // getUTCMonth() returns a zero-based month, so add 1 to get the correct month
+    const utcYear = currentDate.getUTCFullYear();
+    const currentDateUTC = `${utcYear}-${utcMonth
+      .toString()
+      .padStart(2, "0")}-${utcDay.toString().padStart(2, "0")}`; // format as YYYY-MM-DD
     return new Promise((resolve, reject) => {
       // get the correct guesses for today
       const todayTotalCorrectGuesses = firebaseRef(
         db,
-        `total-correct-guesses/${currentDate}`
+        `total-correct-guesses/${currentDateUTC}`
       );
       onValue(
         todayTotalCorrectGuesses,

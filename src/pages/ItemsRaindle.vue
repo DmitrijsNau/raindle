@@ -104,7 +104,7 @@ import LostStreakAlert from "src/components/General/LostStreakAlert.vue";
 import FormColumnDecriptor from "src/components/ItemsRaindle/Form/FormColumnDecriptor.vue";
 import FormItemsColorLookup from "src/components/ItemsRaindle/Form/FormItemsColorLookup.vue";
 
-import useTodaysItemsAnswer from "src/composables/useTodaysItemsAnswer";
+import useTodaysDateUtility from "src/composables/useTodaysItemsAnswer";
 import useTodaysStreak from "src/composables/useTodaysSreak";
 
 import { useGameSettingsStore } from "src/stores/gameSettings";
@@ -138,7 +138,7 @@ const isItemGuessed = computed(() => {
 });
 
 onMounted(async () => {
-  const { getTodaysItemsAnswer } = useTodaysItemsAnswer();
+  const { getTodaysItemsAnswer } = useTodaysDateUtility();
   const answerRef = await getTodaysItemsAnswer();
   todaysItemAnswer.value = answerRef.value;
 
