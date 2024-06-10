@@ -1,10 +1,11 @@
-import { useStorage } from "@vueuse/core";
+import { timestamp, useStorage } from "@vueuse/core";
 import { ref } from "vue";
-import { db } from "boot/firebase";
-import { set, ref as firebaseRef, get, onValue } from "firebase/database";
+import { db, firestore } from "boot/firebase";
+import { set, ref as firebaseRef, onValue } from "firebase/database";
+import { serverTimestamp } from "firebase/firestore";
 import seedrandom from "seedrandom";
 
-export default function useTodaysItemsAnswer() {
+export default function useTodaysDateUtility() {
   const todaysItemsAnswer = ref(null);
   const userItemGuesses = useStorage("Raindle_itemGuesses", [], localStorage, {
     mergeDefaults: true,
@@ -13,9 +14,8 @@ export default function useTodaysItemsAnswer() {
     mergeDefaults: true,
   });
   const getTodaysItemsAnswer = async () => {
-    const currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0); // reset time to 00:00:00
-    const epoch = Math.floor(currentDate.getTime() / 1000);
+    const utcDate = await getServerTimestamp();
+    const epoch = Math.floor(utcDate / 1000);
     const totalProblems = 179; // TOTAL NUMBER OF PROBLEMS - Dynamically fetch from db
     const index = Math.floor((epoch / (24 * 60 * 60)) % totalProblems); // divide by seconds in a day
     // Use the index as a seed for a PRNG
@@ -41,5 +41,28 @@ export default function useTodaysItemsAnswer() {
       );
     });
   };
-  return { getTodaysItemsAnswer };
+  const getServerTimestamp = async () => {
+    // Write the server timestamp to the database
+    const serverTimestampRef = firebaseRef(db, "time");
+    set(serverTimestampRef, {
+      ".sv": "timestamp",
+    });
+    // Create a promise that resolves with the server timestamp
+    return new Promise((resolve, reject) => {
+      // Read the server timestamp from the database
+      const timestampRef = firebaseRef(db, "time");
+      onValue(
+        timestampRef,
+        (snapshot) => {
+          const serverTime = snapshot.val();
+          resolve(serverTime);
+        },
+        {
+          onlyOnce: true,
+        }
+      );
+    });
+  };
+
+  return { getTodaysItemsAnswer, getServerTimestamp };
 }

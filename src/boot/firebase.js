@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.VUE_APP_API_KEY,
@@ -19,4 +20,5 @@ const firebaseApp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseApp);
 const db = getDatabase(firebaseApp);
 const storage = getStorage(firebaseApp);
-export { firebaseApp, db, storage, analytics };
+const firestore = getFirestore(firebaseApp);
+export { firebaseApp, db, storage, analytics, firestore };
