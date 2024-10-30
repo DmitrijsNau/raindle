@@ -41,8 +41,7 @@ export default{
     const itemsRaindleStore = useItemsRaindleStore();
     const gameSettingsStore = useGameSettingsStore();
     return { itemsRaindleStore, gameSettingsStore };
-  },
-  data() {
+  },  data() {
     return {
       headerToProperty: {
         Item: "itemImage",
@@ -55,6 +54,16 @@ export default{
         Achievement: "achievementUnlocked",
       },
       headerValuesMap: {
+        "Item Type": [
+          "Damage",
+          "Healing",
+          "Utility",
+          "Defense",
+          "On Kill",
+          "Lunar",
+          "Void",
+          "Equipment",
+        ],
         Rarity: [
           "Untiered",
           "Common",
@@ -81,21 +90,27 @@ export default{
           "60-99 seconds",
           "100+ seconds",
         ],
-        "Release Period": ["Base Game", "Scorched Acres", "Skills 2.0", "Hidden Realms", "Artifacts", "1.0 Release", "Anniversary", "Survivors of the Void"],
+        "Release Period": [
+          "Base Game",
+          "Scorched Acres",
+          "Skills 2.0",
+          "Hidden Realms",
+          "Artifacts",
+          "1.0 Release",
+          "Anniversary",
+          "Survivors of the Void",
+        ],
       },
     };
   },
   methods: {
     useColumnColor(header) {
-      if (this.isCloseGuess(header)) {
+      if (this.isCloseGuess(header) && !this.isCorrectGuess(header)) {
         return this.gameSettingsStore.colorBlindMode
           ? "bg-yellow-14"
           : "bg-yellow-14";
       }
-      if (
-        this.itemGuess[this.headerToProperty[header]] ===
-        this.todaysItemAnswer[this.headerToProperty[header]]
-      ) {
+      if (this.isCorrectGuess(header)) {
         return this.gameSettingsStore.colorBlindMode
           ? "bg-blue-8"
           : "bg-green-14";
@@ -146,19 +161,16 @@ export default{
         const guessTypes = this.itemGuess[this.headerToProperty[header]]
           .split(",")
           .map((type) => type.trim());
-          const correctTypes = this.todaysItemAnswer[
+        const correctTypes = this.todaysItemAnswer[
           this.headerToProperty[header]
         ]
           .split(",")
           .map((type) => type.trim());
-        const correctGuessTypes = guessTypes.filter((type) =>
-          correctTypes.includes(type)
-        );
-        return (
-          correctGuessTypes.length > 0 &&
-          correctGuessTypes.length < guessTypes.length &&
-          guessTypes.length !== correctTypes.length
-        );
+
+        if (guessTypes.some((type) => correctTypes.includes(type)) ||
+          correctTypes.some((type) => guessTypes.includes(type))){
+            return true
+          }
       }
       const values = this.headerValuesMap[header];
       if (!values) return false;
@@ -169,6 +181,10 @@ export default{
         this.todaysItemAnswer[this.headerToProperty[header]]
       );
       return Math.abs(guessIndex - correctIndex) === 1;
+    },
+    isCorrectGuess(header) {
+      return this.itemGuess[this.headerToProperty[header]] ===
+      this.todaysItemAnswer[this.headerToProperty[header]]
     },
     useItemBackgroundColor() {
       if (this.gameSettingsStore.colorBlindMode) {

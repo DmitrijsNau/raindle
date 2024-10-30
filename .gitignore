@@ -33,3 +33,7 @@ yarn-error.log*
 .env.local*
 .env
 .quasar.env.json
+
+.firebase/
+.editorconfig
+.vscode/

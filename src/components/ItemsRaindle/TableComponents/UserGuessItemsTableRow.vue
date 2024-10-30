@@ -97,6 +97,16 @@ export default {
         Achievement: "achievementUnlocked",
       },
       headerValuesMap: {
+        "Item Type": [
+          "Damage",
+          "Healing",
+          "Utility",
+          "Defense",
+          "On Kill",
+          "Lunar",
+          "Void",
+          "Equipment",
+        ],
         Rarity: [
           "Untiered",
           "Common",
@@ -200,10 +210,10 @@ export default {
           .split(",")
           .map((type) => type.trim());
 
-        return (
-          guessTypes.some((type) => correctTypes.includes(type)) ||
-          correctTypes.some((type) => guessTypes.includes(type))
-        );
+        if (guessTypes.some((type) => correctTypes.includes(type)) ||
+          correctTypes.some((type) => guessTypes.includes(type))){
+            return true
+          }
       }
       const values = this.headerValuesMap[header];
       if (!values) return false;
